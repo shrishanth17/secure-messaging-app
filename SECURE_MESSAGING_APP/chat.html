@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
 
+<div class="chat-container">
+
+    <div class="header">
+        🔐 Secure Chat — Encryption ON
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="messages">
+        {% for m in messages %}
+            <div class="msg">
+                <b>{{ m.user }}:</b> {{ m.text }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="POST" class="input-box">
+        <input type="text" name="message" placeholder="Type message..." required>
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+
+</body>
+</html>
