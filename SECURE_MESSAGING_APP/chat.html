@@ -1,32 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Secure Chat</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <title>Secure Messaging Chat</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
 <body>
-
-<div class="chat-container">
-
-    <div class="header">
-        🔐 Secure Chat — Encryption ON
-        <a href="/logout">Logout</a>
-    </div>
-
-    <div class="messages">
-        {% for m in messages %}
-            <div class="msg">
-                <b>{{ m.user }}:</b> {{ m.text }}
-            </div>
+  <div id="app">
+    <div id="sidebar">
+      <h3>Users</h3>
+      <ul id="users-list">
+        {% for user in users %}
+          <li class="user-item" data-username="{{ user }}">
+            {{ user }}
+            <span class="status online">●</span>
+          </li>
         {% endfor %}
+      </ul>
     </div>
 
-    <form method="POST" class="input-box">
-        <input type="text" name="message" placeholder="Type message..." required>
-        <button type="submit">Send</button>
-    </form>
+    <div id="chat-area">
+      <div id="chat-header">
+        <span id="chat-with"></span>
+      </div>
+      <div id="messages-container"></div>
+      <div id="input-area">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+        <label>
+          <input type="checkbox" id="self-destruct"> Self-destruct (5s)
+        </label>
+      </div>
+    </div>
+  </div>
 
-</div>
-
+  <script src="/static/script.js"></script>
 </body>
 </html>
