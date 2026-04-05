@@ -1,15 +1,76 @@
-<div class="login-box">
-    <h2>🔐 Secure Chat Login</h2>
 
+<!doctype html>
+<html>
+<head>
+  <title>SecureChat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-box {
+      background: rgba(255,255,255,0.95);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 15px 20px;
+      margin: 12px 0;
+      border: 2px solid #ff6b6b;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s;
+      background: white;
+    }
+    input:focus {
+      outline: none;
+      border-color: #4ecdc4;
+      box-shadow: 0 0 10px rgba(78,205,196,0.3);
+    }
+    button {
+      width: 100%;
+      padding: 15px 20px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>🔒 SecureChat</h2>
     <form method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        
-        <div class="options">
-            <label><input type="checkbox" name="remember"> Remember Me</label>
-        </div>
-
-        <button type="submit">Login</button>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Enter Chat</button>
     </form>
-    <p class="signup-link">Don't have an account? <a href="/register">Sign Up</a></p>
-</div>
+  </div>
+</body>
+</html>
